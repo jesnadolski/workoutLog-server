@@ -1,7 +1,7 @@
 let express = require('express');
 let router = express.Router();
 let validateSession = require('../middleware/validate-session');
-const Log = require('../db').import('../models/workoutlog');
+const Log = require('../db').import('../models/log');
 
 
 //CREATE ENTRY
@@ -48,6 +48,7 @@ router.get("/mine", validateSession, (req,res) => {
 
 router.get("/:id", validateSession, (req,res) => {
     let id = req.params.id;
+    let userid = req.user.id;
 
     Log.findAll({
         where: {id: id, owner_id: userid}
