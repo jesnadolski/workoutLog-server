@@ -1,5 +1,5 @@
 module.exports = (sequelize, DataTypes) => {
-    const Workoutlog = sequelize.define('workoutlog', {
+    const Log = sequelize.define('log', {
         description: {
             type: DataTypes.STRING,
             allowNull: false
@@ -17,5 +17,5 @@ module.exports = (sequelize, DataTypes) => {
             allowNull: false
         }
     })
-    return Workoutlog;
+    return Log;
 }
