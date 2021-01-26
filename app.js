@@ -8,6 +8,8 @@ let log = require('./controllers/workoutcontroller')
 
 sequelize.sync();
 
+app.use(require('./middleware/headers'));
+
 app.use(express.json());
 
 

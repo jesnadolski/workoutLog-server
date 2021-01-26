@@ -70,7 +70,7 @@ router.put("/update/:id", validateSession, function (req,res) {
     const query = {where: {id: req.params.id, owner_id: req.user.id}};
     
     Log.update(updateLogEntry, query)
-    .then((logs) => res.status(200).json(logs))
+    .then((logs) => res.status(200).json({logs, message: "Updated successfully"}))
     .catch((err) => res.status(500).json({error: err}));
 });
 
